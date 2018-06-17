@@ -31,8 +31,6 @@ RUN apt-get install -y --no-install-recommends \
 RUN groupadd -r kivy \
     && useradd --no-log-init -rmg kivy kivy
 
-USER kivy
-
 RUN pip install \
     cython==0.25.2 \
     wheel
@@ -43,3 +41,5 @@ RUN pip install \
     https://github.com/kivy/plyer/archive/master.zip
 
 RUN rm -rf $HOME/.cache /tmp/pip_build_root
+
+CMD ["/usr/local/bin/buildozer"]
